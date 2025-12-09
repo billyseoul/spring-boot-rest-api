@@ -14,4 +14,5 @@ import java.util.Optional;
 import java.util.function.Function;
 
 public interface CloudVendorRepository extends JpaRepository<CloudVendor, String> {
+  List<CloudVendor> findByVendorName(String vendorName);
 }
