@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+import io.swagger.v3.oas.annotations.Operation;
+
 @RestController
 @RequestMapping("/cloudvendor")
 public class CloudVendorController {
@@ -30,6 +32,7 @@ public class CloudVendorController {
 
   // Read specific Cloud Vendor details from DB
   @GetMapping("{vendorId}")
+  @Operation(summary = "Cloud Vendor ID", description = "Provide Cloud Vendor details")
   public ResponseEntity<Object> getCloudVendorDetails(@PathVariable(value = "vendorId") String vendorId) {
     return ResponseHandler.responseBuilder("Requested Vendor Details are given here",
             HttpStatus.OK, cloudVendorService.getCloudVendor(vendorId));
